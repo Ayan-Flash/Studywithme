@@ -1,0 +1,1 @@
+// DELETED: Moved to backend/src/types/index.ts

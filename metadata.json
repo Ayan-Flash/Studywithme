@@ -1,0 +1,7 @@
+{
+  "name": "StudyWithMe",
+  "description": "A depth-driven learning assistant that adapts to student needs, enforces ethical assignment help, and provides structured feedback.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}

@@ -1,0 +1,20 @@
+# Render.com Backend Configuration
+# This file is used by Render for automatic deployment
+
+services:
+  - type: web
+    name: studywithme-backend
+    env: node
+    region: oregon
+    plan: free
+    branch: main
+    rootDir: backend
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: API_KEY
+        sync: false  # Set manually in Render dashboard
+      - key: FRONTEND_URL
+        sync: false  # Set to your Vercel frontend URL
