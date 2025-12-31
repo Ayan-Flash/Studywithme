@@ -244,17 +244,12 @@ Generate ${count} flashcards about "${topic}" now:`;
     }
 });
 
-// ============ STATIC FILE SERVING (PRODUCTION) ============
-if (NODE_ENV === 'production') {
+// ============ STATIC FILE SERVING ============
+// Note: Frontend is deployed separately on Vercel
+// This section is only for self-hosted deployments
+if (NODE_ENV === 'production' && process.env.SERVE_STATIC === 'true') {
     const staticPath = path.join(__dirname, '../frontend/dist');
     app.use(express.static(staticPath));
-
-    // SPA fallback
-    app.get('*', (req: Request, res: Response) => {
-        if (!req.path.startsWith('/api')) {
-            res.sendFile(path.join(staticPath, 'index.html'));
-        }
-    });
 }
 
 // ============ ERROR HANDLER ============
